@@ -45,6 +45,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  */
 Route::middleware('auth:sanctum')->group(function(){
 
+    
     Route::apiResource('orders', OrderController::class);
 
     Route::apiResource('people', PersonController::class);
