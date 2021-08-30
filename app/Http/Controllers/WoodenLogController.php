@@ -24,7 +24,8 @@ class WoodenLogController extends Controller
      */
     public function index()
     {
-        //
+        $woodenLogs = WoodenLog::orderBy('updated_at', 'desc')->pagiate(10);
+        return response()->json($woodenLogs, 200);
     }
 
     /**
@@ -46,7 +47,7 @@ class WoodenLogController extends Controller
      */
     public function show(WoodenLog $woodenLog)
     {
-        //
+        return response()->json($woodenLog, 200);
     }
 
     /**

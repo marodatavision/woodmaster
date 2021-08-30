@@ -24,7 +24,8 @@ class StorageController extends Controller
      */
     public function index()
     {
-        //
+        $storages = Storage::orderBy('location')->paginate(10);
+        return response()->json($storages, 200);
     }
 
     /**
@@ -46,7 +47,7 @@ class StorageController extends Controller
      */
     public function show(Storage $storage)
     {
-        //
+        return response()->json($storage, 200);
     }
 
     /**

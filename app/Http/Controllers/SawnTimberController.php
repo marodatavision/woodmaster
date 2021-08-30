@@ -24,7 +24,8 @@ class SawnTimberController extends Controller
      */
     public function index()
     {
-        //
+        $sawnTimbers = SawnTimber::orderBy('updated_at', 'desc')->paginate(10);
+        return response()->json($sawnTimbers, 200);
     }
 
     /**
@@ -46,7 +47,7 @@ class SawnTimberController extends Controller
      */
     public function show(SawnTimber $sawnTimber)
     {
-        //
+        return response()->json($sawnTimber, 200);
     }
 
     /**

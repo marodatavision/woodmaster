@@ -25,7 +25,8 @@ class PersonController extends Controller
      */
     public function index()
     {
-        //
+        $people = Person::orderBy('lastname')->paginate(10);
+        return response()->json($people, 200);
     }
 
     /**
@@ -47,7 +48,7 @@ class PersonController extends Controller
      */
     public function show(Person $person)
     {
-        //
+        return response()->json($person, 200);
     }
 
     /**
