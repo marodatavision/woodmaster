@@ -26,7 +26,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::orderBy('updated_at', 'desc')->paginate(10);
+        return response()->json($orders, )
     }
 
     /**
