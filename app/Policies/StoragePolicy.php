@@ -18,7 +18,7 @@ class StoragePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class StoragePolicy
      */
     public function view(User $user, Storage $storage)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class StoragePolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -53,7 +53,7 @@ class StoragePolicy
      */
     public function update(User $user, Storage $storage)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -65,7 +65,7 @@ class StoragePolicy
      */
     public function delete(User $user, Storage $storage)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -77,7 +77,7 @@ class StoragePolicy
      */
     public function restore(User $user, Storage $storage)
     {
-        //
+        return $user->hasRole('admin');
     }
 
     /**
@@ -89,6 +89,6 @@ class StoragePolicy
      */
     public function forceDelete(User $user, Storage $storage)
     {
-        //
+        return $user->hasRole('admin');
     }
 }

@@ -18,7 +18,7 @@ class PersonPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class PersonPolicy
      */
     public function view(User $user, Person $person)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class PersonPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -53,7 +53,7 @@ class PersonPolicy
      */
     public function update(User $user, Person $person)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -65,7 +65,7 @@ class PersonPolicy
      */
     public function delete(User $user, Person $person)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -77,7 +77,7 @@ class PersonPolicy
      */
     public function restore(User $user, Person $person)
     {
-        //
+        return $user->hasRole('admin');
     }
 
     /**
@@ -89,6 +89,6 @@ class PersonPolicy
      */
     public function forceDelete(User $user, Person $person)
     {
-        //
+        return $user->hasRole('admin');
     }
 }

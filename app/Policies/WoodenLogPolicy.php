@@ -18,7 +18,7 @@ class WoodenLogPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class WoodenLogPolicy
      */
     public function view(User $user, WoodenLog $woodenLog)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class WoodenLogPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -53,7 +53,7 @@ class WoodenLogPolicy
      */
     public function update(User $user, WoodenLog $woodenLog)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -65,7 +65,7 @@ class WoodenLogPolicy
      */
     public function delete(User $user, WoodenLog $woodenLog)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -77,7 +77,7 @@ class WoodenLogPolicy
      */
     public function restore(User $user, WoodenLog $woodenLog)
     {
-        //
+        return $user->hasRole('admin');
     }
 
     /**
@@ -89,6 +89,6 @@ class WoodenLogPolicy
      */
     public function forceDelete(User $user, WoodenLog $woodenLog)
     {
-        //
+        return $user->hasRole('admin');
     }
 }

@@ -18,7 +18,7 @@ class SawnTimberPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class SawnTimberPolicy
      */
     public function view(User $user, SawnTimber $sawnTimber)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class SawnTimberPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -53,7 +53,7 @@ class SawnTimberPolicy
      */
     public function update(User $user, SawnTimber $sawnTimber)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -65,7 +65,7 @@ class SawnTimberPolicy
      */
     public function delete(User $user, SawnTimber $sawnTimber)
     {
-        //
+        return $user->hasRole('editor') || $user->hasRole('admin');
     }
 
     /**
@@ -77,7 +77,7 @@ class SawnTimberPolicy
      */
     public function restore(User $user, SawnTimber $sawnTimber)
     {
-        //
+        return $user->hasRole('admin');
     }
 
     /**
@@ -89,6 +89,6 @@ class SawnTimberPolicy
      */
     public function forceDelete(User $user, SawnTimber $sawnTimber)
     {
-        //
+        return $user->hasRole('admin');
     }
 }
