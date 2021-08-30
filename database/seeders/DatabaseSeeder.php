@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Person;
 use App\Models\SawnTimber;
 use App\Models\Storage;
+use App\Models\User;
 use App\Models\WoodenLog;
 use Exception;
 use Faker\Factory;
@@ -22,6 +23,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $faker = Factory::create();
+
+        User::factory(10)->create();
         
         $people = Person::factory(20)->create();
         $stocks = Storage::factory(3)->create();
