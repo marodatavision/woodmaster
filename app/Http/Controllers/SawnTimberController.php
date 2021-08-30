@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 class SawnTimberController extends Controller
 {
     /**
+     * Create the controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(SawnTimber::class, 'sawn_timber');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 class WoodenLogController extends Controller
 {
     /**
+     * Create the controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(WoodenLog::class, 'wooden_log');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

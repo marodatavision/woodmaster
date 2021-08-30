@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 class StorageController extends Controller
 {
     /**
+     * Create the controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Storage::class, 'storage');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
