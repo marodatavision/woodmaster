@@ -23,6 +23,7 @@ const UserContext = React.createContext({loggedIn: false});
 export default function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [responseError, setResponseError] = useState(null);
 
   const logout = (e) => {
     UserAuth.logout()
@@ -31,7 +32,7 @@ export default function App() {
       window.location.href = "/";
     })
     .catch(error => {
-      LogMessager(error, "Component: App - Function: logout");
+      LogMessager.responseErrorLog(error, "Component: App - Function: logout");
     })
   }
 
@@ -43,7 +44,8 @@ export default function App() {
       }
     })
     .catch(error => {
-      LogMessager(error, "Component: App - Function: useEffect");
+      setResponseError(error);
+      LogMessager.responseErrorLog(error, "Component: App - Function: useEffect");
     })
   }, [])
 
@@ -95,7 +97,9 @@ export default function App() {
               ? <Route path="/dashboard">
                 <Dashboard />
               </Route>
-              : <BasicErrorView errorMsg="Sie sind wahrscheinlich nicht eingeloggt!"/>
+              : responseError
+                ? <BasicErrorView errorMsg="Fehler beim einloggen! Die eingegebenen Daten sind uns nicht bekannt."/>
+                : null
             }
             <Route path="/about">
               <About />

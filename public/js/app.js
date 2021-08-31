@@ -15310,12 +15310,17 @@ function App() {
       loggedIn = _useState2[0],
       setLoggedIn = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      responseError = _useState4[0],
+      setResponseError = _useState4[1];
+
   var logout = function logout(e) {
     _services_UserAuth__WEBPACK_IMPORTED_MODULE_8__.default.logout().then(function (response) {
       setLoggedIn(false);
       window.location.href = "/";
     })["catch"](function (error) {
-      (0,_config_LogMessager__WEBPACK_IMPORTED_MODULE_9__.default)(error, "Component: App - Function: logout");
+      _config_LogMessager__WEBPACK_IMPORTED_MODULE_9__.default.responseErrorLog(error, "Component: App - Function: logout");
     });
   };
 
@@ -15325,7 +15330,8 @@ function App() {
         setLoggedIn(true);
       }
     })["catch"](function (error) {
-      (0,_config_LogMessager__WEBPACK_IMPORTED_MODULE_9__.default)(error, "Component: App - Function: useEffect");
+      setResponseError(error);
+      _config_LogMessager__WEBPACK_IMPORTED_MODULE_9__.default.responseErrorLog(error, "Component: App - Function: useEffect");
     });
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(UserContext.Provider, {
@@ -15395,9 +15401,9 @@ function App() {
           }), loggedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             path: "/dashboard",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_Dashboard__WEBPACK_IMPORTED_MODULE_6__.default, {})
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_errors_BasicErrorView__WEBPACK_IMPORTED_MODULE_10__.default, {
-            errorMsg: "Sie sind wahrscheinlich nicht eingeloggt!"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+          }) : responseError ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_errors_BasicErrorView__WEBPACK_IMPORTED_MODULE_10__.default, {
+            errorMsg: "Fehler beim einloggen! Die eingegebenen Daten sind uns nicht bekannt."
+          }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             path: "/about",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_About__WEBPACK_IMPORTED_MODULE_7__.default, {})
           })]
@@ -15525,7 +15531,8 @@ var Login = function Login(props) {
         setUserData({
           email: "",
           password: ""
-        }); // window.location.href = "/dashboard"
+        });
+        window.location.href = "/dashboard";
       })["catch"](function (error) {
         // props.setLoggedIn(false);
         _config_LogMessager__WEBPACK_IMPORTED_MODULE_1__.default.responseErrorLog(error, "Component: Login - Function: onSubmit");

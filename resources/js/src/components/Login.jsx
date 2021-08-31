@@ -14,7 +14,7 @@ const Login = (props) => {
             .then(response => {
                 props.setLoggedIn(true);
                 setUserData({email: "", password: ""});
-                // window.location.href = "/dashboard"
+                window.location.href = "/dashboard"
             })
             .catch(error => {
                 // props.setLoggedIn(false);
