@@ -43,18 +43,17 @@ const Dashboard = (props) => {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Grid container spacing={3}>
-                                    <Grid item xs={12}><h3>Aufträge</h3></Grid>
-                                    <Grid container item xs={12} spacing={3}>
-                                        <Grid item xs={6}>Titel</Grid>
+                                    <Grid container item xs={12} spacing={3} className="font-weight-bold">
+                                        <Grid item xs={6}>Auftragstitel</Grid>
                                         <Grid item xs={3}>Fällig Am</Grid>
                                         <Grid item xs={3}>Status</Grid>
                                     </Grid>
                                     {
-                                        person.orders.map(order => (
-                                            <Grid container item xs={12} spacing={3}>
+                                        person.orders.map((order, j) => (
+                                            <Grid key={j} container item xs={12} spacing={3}>
                                                 <Grid item xs={6}>{order.title}</Grid>
                                                 <Grid item xs={3}>{order.deadline}</Grid>
-                                                <Grid item xs={3}>{order.state}</Grid>
+                                                <Grid item xs={3} style={{backgroundColor: `rgba(0, 204, 102, ${order.state})`}}>{order.state * 100} %</Grid>
                                             </Grid>
                                         ))
                                     }

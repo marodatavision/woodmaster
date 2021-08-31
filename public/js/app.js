@@ -17560,21 +17560,16 @@ var Dashboard = function Dashboard(props) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
                 container: true,
                 spacing: 3,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
-                  item: true,
-                  xs: 12,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
-                    children: "Auftr\xE4ge"
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
                   container: true,
                   item: true,
                   xs: 12,
                   spacing: 3,
+                  className: "font-weight-bold",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
                     item: true,
                     xs: 6,
-                    children: "Titel"
+                    children: "Auftragstitel"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
                     item: true,
                     xs: 3,
@@ -17584,7 +17579,7 @@ var Dashboard = function Dashboard(props) {
                     xs: 3,
                     children: "Status"
                   })]
-                }), person.orders.map(function (order) {
+                }), person.orders.map(function (order, j) {
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
                     container: true,
                     item: true,
@@ -17598,12 +17593,15 @@ var Dashboard = function Dashboard(props) {
                       item: true,
                       xs: 3,
                       children: order.deadline
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
                       item: true,
                       xs: 3,
-                      children: order.state
+                      style: {
+                        backgroundColor: "rgba(0, 204, 102, ".concat(order.state, ")")
+                      },
+                      children: [order.state * 100, " %"]
                     })]
-                  });
+                  }, j);
                 })]
               })
             })]
