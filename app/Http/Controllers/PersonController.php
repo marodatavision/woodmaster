@@ -25,7 +25,7 @@ class PersonController extends Controller
      */
     public function index()
     {
-        $people = Person::orderBy('lastname')->paginate(10);
+        $people = Person::orderBy('lastname')->with('orders')->paginate(10);
         return response()->json($people, 200);
     }
 
