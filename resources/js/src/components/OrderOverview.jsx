@@ -1,11 +1,18 @@
+import { Divider } from '@material-ui/core';
 import { Button, Grid } from '@material-ui/core';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CommentCard from './order-components/CommentCard';
 import DeadlineCard from './order-components/DeadlineCard';
 import StateCard from './order-components/StateCard';
+import SubdirectoryArrowLeftIcon from '@material-ui/icons/SubdirectoryArrowLeft';
+import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
 
 const OrderOverview = ({selectedOrder, setSelectedOrder}) => {
 
+    const style = {
+        transition: ''
+    }
 
     return(
         <div className="card">
@@ -38,6 +45,18 @@ const OrderOverview = ({selectedOrder, setSelectedOrder}) => {
                         }
                     </Grid>
                 </Grid>
+                <Divider className="mt-3" />
+                <div className="d-flex justify-content-around mt-5">
+                    <Link>
+                        <img src="images/log_haufen-removebg-preview.png" alt="" height="80"/>
+                    </Link>
+                    <h1><SubdirectoryArrowLeftIcon fontSize="inherit"/></h1>
+                    
+                    <h1><SubdirectoryArrowRightIcon fontSize="inherit"/></h1>
+                    <Link>
+                        <img src="images/beams-removebg-preview.png" alt="" height="80"/>
+                    </Link>
+                </div>
             </div>
         </div>
     )
