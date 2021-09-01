@@ -17,6 +17,7 @@ import UserAuth from "./services/UserAuth";
 import LogMessager from "./config/LogMessager";
 import BasicErrorView from "./components/errors/BasicErrorView";
 import { useEffect } from "react";
+import OrderOverview from "./components/OrderOverview";
 
 const UserContext = React.createContext({loggedIn: false});
 
@@ -24,6 +25,7 @@ export default function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [responseError, setResponseError] = useState(null);
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
   const logout = (e) => {
     UserAuth.logout()
@@ -93,13 +95,17 @@ export default function App() {
               <Welcome />
             </Route>
             {
-              loggedIn
+              loggedIn && !selectedOrder
               ? <Route path="/dashboard">
-                <Dashboard />
+                <Dashboard setSelectedOrder={setSelectedOrder}/>
               </Route>
-              : responseError
-                ? <BasicErrorView errorMsg="Fehler beim einloggen! Die eingegebenen Daten sind uns nicht bekannt."/>
-                : null
+              : loggedIn && selectedOrder
+                ? <Route path="/dashboard">
+                  <OrderOverview selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder}/>
+                </Route>
+                : responseError
+                  ? <BasicErrorView errorMsg="Fehler beim einloggen! Die eingegebenen Daten sind uns nicht bekannt."/>
+                  : null
             }
             <Route path="/about">
               <About />

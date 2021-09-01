@@ -51,9 +51,9 @@ const Dashboard = (props) => {
                                     {
                                         person.orders.map((order, j) => (
                                             <Grid key={j} container item xs={12} spacing={3}>
-                                                <Grid item xs={6}>{order.title}</Grid>
-                                                <Grid item xs={3}>{order.deadline}</Grid>
-                                                <Grid item xs={3} style={{backgroundColor: `rgba(0, 204, 102, ${order.state})`}}>{order.state * 100} %</Grid>
+                                                <Grid item xs={6}><Button onClick={e => props.setSelectedOrder(order)} variant="outlined">{order.title}</Button></Grid>
+                                                <Grid className="d-flex justify-content-center align-items-center" item xs={3}>{order.deadline}</Grid>
+                                                <Grid className="d-flex justify-content-center align-items-center font-weight-bold" item xs={3} style={{backgroundColor: `rgba(0, 204, 102, ${order.state})`}}>{order.state * 100} %</Grid>
                                             </Grid>
                                         ))
                                     }
