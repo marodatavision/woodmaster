@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 import Dashboard from './components/Dashboard';
 import BasicErrorView from './components/errors/BasicErrorView';
 import OrderOverview from './components/OrderOverview';
-import WoodenLogView from './components/wooden-log-components/WoodenLogView';
+import WoodenLogView from './components/WoodenLogView';
 
 const LoggedInRoutes = ({loggedIn, selectedOrder, setSelectedOrder, responseError}) => {
     return(
