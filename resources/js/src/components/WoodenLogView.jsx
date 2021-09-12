@@ -12,7 +12,8 @@ const listItemStyle = {
         cursor: 'pointer', 
         '&:hover': {
             backgroundColor: '#6AB9FA'
-        }
+        },
+        transition: "background 300ms, color 300ms",
     }
 }
 
