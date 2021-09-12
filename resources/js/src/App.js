@@ -54,7 +54,7 @@ export default function App() {
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <AppLogo />
+            <AppLogo loggedIn={loggedIn}/>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -90,7 +90,7 @@ export default function App() {
               <Register setLoggedIn={setLoggedIn}/>
             </Route>
             <Route exact path="/">
-              <Welcome />
+              <Welcome loggedIn={loggedIn}/>
             </Route>
             <LoggedInRoutes loggedIn={loggedIn} 
             selectedOrder={selectedOrder}

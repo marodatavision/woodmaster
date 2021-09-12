@@ -1,8 +1,9 @@
 import React from 'react';
 
-const AppLogo = () => {
+const AppLogo = ({loggedIn}) => {
+
     return (
-        <a href="/">
+        <a href={loggedIn ? '/dashboard' : '/'}>
             <img src="images/timber_icon_bgless.png" alt="App Logo" height="80"/>
         </a>
     )

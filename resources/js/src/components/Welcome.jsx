@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-function Welcome() {
+function Welcome({loggedIn}) {
     return (
         <div className="container">
             <div className="row justify-content-center">
@@ -15,9 +15,16 @@ function Welcome() {
 
                         <div className="card-body justify-content-center">
                             <div className="d-flex justify-content-around">
-                                <Link className="btn btn-primary" to="/login">Login</Link>
+                                {
+
+                                }
+                                <Link className="btn btn-primary" to={loggedIn ? "/dashboard" : "/login"}>{loggedIn ? 'Dashboard' : 'Login'}</Link>
                                 <h3>Willkommen bei Woodmaster</h3>
-                                <Link className="btn btn-secondary" to="/register">Register</Link>
+                                {
+                                    !loggedIn
+                                    ? <Link className="btn btn-secondary" to="/register">Register</Link>
+                                    : null
+                                }
                             </div>
                         </div>
                     </div>

@@ -19130,7 +19130,9 @@ function App() {
         className: "container",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("nav", {
           className: "navbar navbar-expand-lg navbar-light bg-light",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_styles_AppLogo__WEBPACK_IMPORTED_MODULE_3__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_styles_AppLogo__WEBPACK_IMPORTED_MODULE_3__.default, {
+            loggedIn: loggedIn
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             className: "navbar-toggler",
             type: "button",
             "data-toggle": "collapse",
@@ -19186,7 +19188,9 @@ function App() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
             exact: true,
             path: "/",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Welcome__WEBPACK_IMPORTED_MODULE_2__.default, {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Welcome__WEBPACK_IMPORTED_MODULE_2__.default, {
+              loggedIn: loggedIn
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_LoggedInRoutes__WEBPACK_IMPORTED_MODULE_9__.default, {
             loggedIn: loggedIn,
             selectedOrder: selectedOrder,
@@ -19901,7 +19905,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Welcome() {
+function Welcome(_ref) {
+  var loggedIn = _ref.loggedIn;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "container",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -19922,15 +19927,15 @@ function Welcome() {
               className: "d-flex justify-content-around",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
                 className: "btn btn-primary",
-                to: "/login",
-                children: "Login"
+                to: loggedIn ? "/dashboard" : "/login",
+                children: loggedIn ? 'Dashboard' : 'Login'
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
                 children: "Willkommen bei Woodmaster"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              }), !loggedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
                 className: "btn btn-secondary",
                 to: "/register",
                 children: "Register"
-              })]
+              }) : null]
             })
           })]
         })
@@ -20616,9 +20621,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var AppLogo = function AppLogo() {
+var AppLogo = function AppLogo(_ref) {
+  var loggedIn = _ref.loggedIn;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-    href: "/",
+    href: loggedIn ? '/dashboard' : '/',
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
       src: "images/timber_icon_bgless.png",
       alt: "App Logo",
