@@ -47,13 +47,13 @@ const OrderOverview = ({selectedOrder, setSelectedOrder}) => {
                 </Grid>
                 <Divider className="mt-3" />
                 <div className="d-flex justify-content-around mt-5">
-                    <Link to={`/wooden-logs?order_id=${selectedOrder.id}`}>
+                    <Link to={`/wooden-logs/order/${selectedOrder.id}`}>
                         <img src="images/log_haufen-removebg-preview.png" alt="" height="80"/>
                     </Link>
                     <h1><SubdirectoryArrowLeftIcon fontSize="inherit"/></h1>
                     
                     <h1><SubdirectoryArrowRightIcon fontSize="inherit"/></h1>
-                    <Link to={`/sawn-timbers?order_id=${selectedOrder.id}`}>
+                    <Link to={`/sawn-timbers/order/${selectedOrder.id}`}>
                         <img src="images/beams-removebg-preview.png" alt="" height="80"/>
                     </Link>
                 </div>

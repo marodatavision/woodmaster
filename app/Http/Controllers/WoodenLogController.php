@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\WoodenLog;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,18 @@ class WoodenLogController extends Controller
     public function show(WoodenLog $woodenLog)
     {
         return response()->json($woodenLog, 200);
+    }
+
+    /**
+     * Display the resources of specified order id.
+     *
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function showByOrderId(Order $order)
+    {
+        $woodenLogs = $order->woodenLogs;
+        return response()->json($woodenLogs, 200);
     }
 
     /**

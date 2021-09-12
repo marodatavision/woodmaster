@@ -55,5 +55,6 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('storages', StorageController::class);
 
     Route::apiResource('wooden-logs', WoodenLogController::class);
+    Route::get('wooden-logs/order/{order}', [WoodenLogController::class, 'showByOrderId']);
 
 });
