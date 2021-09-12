@@ -10,14 +10,12 @@ import Welcome from "./components/Welcome";
 import AppLogo from "./styles/AppLogo";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Dashboard from "./components/Dashboard";
 import About from "./components/About";
 import { Button } from "@material-ui/core";
 import UserAuth from "./services/UserAuth";
 import LogMessager from "./config/LogMessager";
-import BasicErrorView from "./components/errors/BasicErrorView";
 import { useEffect } from "react";
-import OrderOverview from "./components/OrderOverview";
+import LoggedInRoutes from "./LoggedInRoutes";
 
 const UserContext = React.createContext({loggedIn: false});
 
@@ -94,19 +92,10 @@ export default function App() {
             <Route exact path="/">
               <Welcome />
             </Route>
-            {
-              loggedIn && !selectedOrder
-              ? <Route path="/dashboard">
-                <Dashboard setSelectedOrder={setSelectedOrder}/>
-              </Route>
-              : loggedIn && selectedOrder
-                ? <Route path="/dashboard">
-                  <OrderOverview selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder}/>
-                </Route>
-                : responseError
-                  ? <BasicErrorView errorMsg="Fehler beim einloggen! Die eingegebenen Daten sind uns nicht bekannt."/>
-                  : null
-            }
+            <LoggedInRoutes loggedIn={loggedIn} 
+            selectedOrder={selectedOrder}
+            setSelectedOrder={setSelectedOrder}
+            responseError={responseError}/>
             <Route path="/about">
               <About />
             </Route>
