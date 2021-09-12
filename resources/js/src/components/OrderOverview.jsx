@@ -7,6 +7,8 @@ import DeadlineCard from './order-components/DeadlineCard';
 import StateCard from './order-components/StateCard';
 import SubdirectoryArrowLeftIcon from '@material-ui/icons/SubdirectoryArrowLeft';
 import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
+import CustomCardHeader from './general/CustomCardHeader';
+import ImageComponent from './general/ImageComponent';
 
 const OrderOverview = ({selectedOrder, setSelectedOrder}) => {
 
@@ -17,11 +19,7 @@ const OrderOverview = ({selectedOrder, setSelectedOrder}) => {
     return(
         <div className="card">
             <div className="card-header">
-                <h3>{selectedOrder.title}</h3>
-                <div className="d-flex justify-content-between">
-                    <div></div>
-                    <div><Button variant="outlined" color="primary" onClick={e => setSelectedOrder(null)}>Zurück</Button></div>
-                </div>
+                <CustomCardHeader title={selectedOrder.title} setMethod={setSelectedOrder}/>
             </div>
             <div className="card-body">
                 <Grid container spacing={3}>
@@ -48,13 +46,13 @@ const OrderOverview = ({selectedOrder, setSelectedOrder}) => {
                 <Divider className="mt-3" />
                 <div className="d-flex justify-content-around mt-5">
                     <Link to={`/wooden-logs/order/${selectedOrder.id}`}>
-                        <img src="images/log_haufen-removebg-preview.png" alt="" height="80"/>
+                        <ImageComponent src="images/log_haufen-removebg-preview.png"/>
                     </Link>
                     <h1><SubdirectoryArrowLeftIcon fontSize="inherit"/></h1>
                     
                     <h1><SubdirectoryArrowRightIcon fontSize="inherit"/></h1>
                     <Link to={`/sawn-timbers/order/${selectedOrder.id}`}>
-                        <img src="images/beams-removebg-preview.png" alt="" height="80"/>
+                        <ImageComponent src="images/beams-removebg-preview.png"/>
                     </Link>
                 </div>
             </div>
