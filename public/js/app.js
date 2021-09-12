@@ -19228,7 +19228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Dashboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Dashboard */ "./resources/js/src/components/Dashboard.jsx");
 /* harmony import */ var _components_errors_BasicErrorView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/errors/BasicErrorView */ "./resources/js/src/components/errors/BasicErrorView.jsx");
 /* harmony import */ var _components_OrderOverview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/OrderOverview */ "./resources/js/src/components/OrderOverview.jsx");
-/* harmony import */ var _components_wooden_log_components_WoodenLogView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/wooden-log-components/WoodenLogView */ "./resources/js/src/components/wooden-log-components/WoodenLogView.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module './components/wooden-log-components/WoodenLogView'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -19260,7 +19260,7 @@ var LoggedInRoutes = function LoggedInRoutes(_ref) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_6__.Route, {
         path: "/wooden-logs/order/:orderId",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_wooden_log_components_WoodenLogView__WEBPACK_IMPORTED_MODULE_4__.default, {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module './components/wooden-log-components/WoodenLogView'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_6__.Route, {
         path: "/sawn-timbers/order/:orderId",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_OrderOverview__WEBPACK_IMPORTED_MODULE_3__.default, {
@@ -20229,130 +20229,6 @@ var StateCard = function StateCard(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StateCard);
-
-/***/ }),
-
-/***/ "./resources/js/src/components/wooden-log-components/WoodenLogView.js":
-/*!****************************************************************************!*\
-  !*** ./resources/js/src/components/wooden-log-components/WoodenLogView.js ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/withStyles/withStyles.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _config_baseurls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config/baseurls */ "./resources/js/src/config/baseurls.js");
-/* harmony import */ var _services_BaseApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/BaseApi */ "./resources/js/src/services/BaseApi.js");
-/* harmony import */ var _general_CustomCardHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../general/CustomCardHeader */ "./resources/js/src/components/general/CustomCardHeader.jsx");
-/* harmony import */ var _general_ImageComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../general/ImageComponent */ "./resources/js/src/components/general/ImageComponent.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
- // styles
-
-
-
-var listItemStyle = {
-  tr: {
-    // backgroundColor: "#f1f1f1",
-    cursor: 'pointer',
-    '&:hover': {
-      backgroundColor: '#6AB9FA'
-    }
-  }
-};
-
-var WoodenLogView = function WoodenLogView(props) {
-  // url params
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useParams)(),
-      orderId = _useParams.orderId; // states
-
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-      _useState2 = _slicedToArray(_useState, 2),
-      woodenLogs = _useState2[0],
-      setWoodenLogs = _useState2[1];
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log(orderId);
-    _services_BaseApi__WEBPACK_IMPORTED_MODULE_2__.default.show(_config_baseurls__WEBPACK_IMPORTED_MODULE_1__.WOODEN_LOG_ORDER_API_BASE, setWoodenLogs, orderId);
-  }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    className: "card",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "card-header",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_general_CustomCardHeader__WEBPACK_IMPORTED_MODULE_3__.default, {
-        title: "Rundh\xF6lzer zur Auftrags-ID ".concat(orderId)
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "card-body",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("table", {
-        className: "table",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("thead", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
-              scope: "col",
-              children: "Typ"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
-              scope: "col",
-              children: "Durchmesser"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
-              scope: "col",
-              children: "L\xE4nge"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
-              scope: "col",
-              children: "Qualit\xE4t"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
-              scope: "col",
-              children: "Form"
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("tbody", {
-          children: woodenLogs ? woodenLogs.map(function (wl, i) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
-              className: props.classes.tr,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
-                scope: "row",
-                children: wl.tree_type
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-                children: wl.diameter
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-                children: wl.length
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-                children: wl.quality
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-                children: wl.shape
-              })]
-            }, i);
-          }) : null
-        })]
-      })
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_material_ui_styles__WEBPACK_IMPORTED_MODULE_7__.default)(listItemStyle)(WoodenLogView));
 
 /***/ }),
 
