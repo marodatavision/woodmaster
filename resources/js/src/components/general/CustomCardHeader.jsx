@@ -4,13 +4,19 @@ import { Button } from '@material-ui/core';
 import ImageComponent from './ImageComponent';
 
 
-const CustomCardHeader = ({title, setMethod}) => {
+const CustomCardHeader = ({title, setMethod, imgPath}) => {
     let history = useHistory();
     return(
         <>
             <h3>{title}</h3>
             <div className="d-flex justify-content-between">
-                <div></div>
+                <div>
+                    {
+                        imgPath
+                        ? <ImageComponent src={imgPath} />
+                        : null
+                    }
+                </div>
                 <div>
                 {
                     setMethod

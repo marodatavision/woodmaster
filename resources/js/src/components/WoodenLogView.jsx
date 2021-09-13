@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { WOODEN_LOG_ORDER_API_BASE } from '../config/baseurls';
 import BaseAPI from '../services/BaseApi';
 import CustomCardHeader from './general/CustomCardHeader';
+import ImageComponent from './general/ImageComponent';
 
 // styles
 const listItemStyle = {
@@ -33,7 +34,8 @@ const WoodenLogView = (props) => {
     return (
         <div className="card">
             <div className="card-header">
-                <CustomCardHeader title={`Rundhölzer zur Auftrags-ID ${orderId}`}/>
+                <CustomCardHeader title={`Rundhölzer zur Auftrags-ID ${orderId}`}
+                imgPath="/images/log_haufen-removebg-preview.png"/>
             </div>
             <div className="card-body">
                 <table className="table">

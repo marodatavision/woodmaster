@@ -13,7 +13,11 @@ const ImageComponent = ({src}) => {
             <img
                 src={src}
                 onLoad={checkValid}
-                onError={() => setValid(false)}
+                onError={(e) => {
+                    console.log(`Image error: ${src}`)
+                    console.log(e);
+                    setValid(false)
+                }}
                 ref={image} 
                 height="80"
             />
