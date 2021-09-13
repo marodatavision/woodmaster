@@ -59,7 +59,7 @@ class WoodenLogController extends Controller
      */
     public function showByOrderId(Order $order)
     {
-        $woodenLogs = $order->woodenLogs;
+        $woodenLogs = Order::with('woodenLogs.sawnTimbers.storages')->findOrFail($order->id)->woodenLogs;
         return response()->json($woodenLogs, 200);
     }
 

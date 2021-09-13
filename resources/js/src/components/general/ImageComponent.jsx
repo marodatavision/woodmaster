@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 
-const ImageComponent = ({src}) => {
+const ImageComponent = ({src, height}) => {
     const image = useRef(null);
     const [valid, setValid] = useState(true);
 
@@ -19,7 +19,7 @@ const ImageComponent = ({src}) => {
                     setValid(false)
                 }}
                 ref={image} 
-                height="80"
+                height={height ? height : "80"}
             />
         );
     }

@@ -9,6 +9,7 @@ import SubdirectoryArrowLeftIcon from '@material-ui/icons/SubdirectoryArrowLeft'
 import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
 import CustomCardHeader from './general/CustomCardHeader';
 import ImageComponent from './general/ImageComponent';
+import WoodenLogView from './WoodenLogView';
 
 const OrderOverview = ({selectedOrder, setSelectedOrder}) => {
 
@@ -44,16 +45,8 @@ const OrderOverview = ({selectedOrder, setSelectedOrder}) => {
                     </Grid>
                 </Grid>
                 <Divider className="mt-3" />
-                <div className="d-flex justify-content-around mt-5">
-                    <Link to={`/wooden-logs/order/${selectedOrder.id}`}>
-                        <ImageComponent src="/images/log_haufen-removebg-preview.png"/>
-                    </Link>
-                    <h1><SubdirectoryArrowLeftIcon fontSize="inherit"/></h1>
-                    
-                    <h1><SubdirectoryArrowRightIcon fontSize="inherit"/></h1>
-                    <Link to={`/sawn-timbers/order/${selectedOrder.id}`}>
-                        <ImageComponent src="/images/beams-removebg-preview.png"/>
-                    </Link>
+                <div className="d-flex justify-content-center mt-5">
+                    <WoodenLogView orderId={selectedOrder.id}/>
                 </div>
             </div>
         </div>
