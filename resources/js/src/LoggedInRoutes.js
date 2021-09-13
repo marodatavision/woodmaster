@@ -3,6 +3,7 @@ import { Route } from 'react-router';
 import Dashboard from './components/Dashboard';
 import BasicErrorView from './components/errors/BasicErrorView';
 import OrderOverview from './components/OrderOverview';
+import SawnTimberView from './components/SawnTimberView';
 import WoodenLogView from './components/WoodenLogView';
 
 const LoggedInRoutes = ({loggedIn, selectedOrder, setSelectedOrder, responseError}) => {
@@ -21,8 +22,8 @@ const LoggedInRoutes = ({loggedIn, selectedOrder, setSelectedOrder, responseErro
                     <Route path={`/wooden-logs/order/:orderId`}>
                         <WoodenLogView />
                     </Route>
-                    <Route path={`/sawn-timbers/order/:orderId`}>
-                        <OrderOverview selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder}/>
+                    <Route path={`/sawn-timbers/order/:getById`}>
+                        <SawnTimberView by="order"/>
                     </Route>
                 </>
                 : responseError

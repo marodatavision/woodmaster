@@ -51,6 +51,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('people', PersonController::class);
 
     Route::apiResource('sawn-timbers', SawnTimberController::class);
+    Route::get('sawn-timbers/order/{order}', [SawnTimberController::class, 'showByOrderId']);
 
     Route::apiResource('storages', StorageController::class);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\SawnTimber;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,20 @@ class SawnTimberController extends Controller
     public function show(SawnTimber $sawnTimber)
     {
         return response()->json($sawnTimber, 200);
+    }
+
+    /**
+     * Display the resources of specified order id.
+     *
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function showByOrderId(Order $order)
+    {
+        $sawnTimbers = $order->woodenLogs->map(function($wl){
+            return $wl->sawnTimbers()->with('storages')->get();
+        });
+        return response()->json($sawnTimbers->flatten(1), 200);
     }
 
     /**
