@@ -46,11 +46,6 @@ const WoodenLogView = (props) => {
         BaseAPI.show(WOODEN_LOG_ORDER_API_BASE, setWoodenLogs, props.orderId ? props.orderId : orderId);
     }, [])
 
-    // debug -> delete if complete
-    useEffect(() => {
-        console.log(woodenLogs);
-    }, [woodenLogs])
-
     return (
         <div className="card">
             <div className="card-header">

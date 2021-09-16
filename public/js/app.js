@@ -21319,11 +21319,7 @@ var WoodenLogView = function WoodenLogView(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log(orderId);
     _services_BaseApi__WEBPACK_IMPORTED_MODULE_2__.default.show(_config_baseurls__WEBPACK_IMPORTED_MODULE_1__.WOODEN_LOG_ORDER_API_BASE, setWoodenLogs, props.orderId ? props.orderId : orderId);
-  }, []); // debug -> delete if complete
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log(woodenLogs);
-  }, [woodenLogs]);
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "card",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -22215,7 +22211,6 @@ var Paginator = function Paginator(_ref) {
     if (page_url) {
       axios__WEBPACK_IMPORTED_MODULE_1___default().get(page_url).then(function (response) {
         setData(response.data);
-        console.log(response.data);
       })["catch"](function (error) {
         _config_LogMessager__WEBPACK_IMPORTED_MODULE_2__.default.responseErrorLog(error, 'Paginator - onPageClick');
       });

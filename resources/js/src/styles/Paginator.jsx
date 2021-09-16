@@ -14,7 +14,6 @@ const Paginator = ({data, setData}) => {
             axios.get(page_url)
             .then(response => {
                 setData(response.data);
-                console.log(response.data)
             })
             .catch(error => {
                 LogMessager.responseErrorLog(error, 'Paginator - onPageClick')
