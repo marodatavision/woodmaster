@@ -5,7 +5,6 @@ import { WOODEN_LOG_ORDER_API_BASE } from '../config/baseurls';
 import BaseAPI from '../services/BaseApi';
 import CustomCardHeader from './general/CustomCardHeader';
 import ImageComponent from './general/ImageComponent';
-import HomeIcon from '@material-ui/icons/Home';
 import { Accordion, AccordionDetails, AccordionSummary, Divider, Grid } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import BlockIcon from '@material-ui/icons/Block';
@@ -13,6 +12,7 @@ import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import AllOutIcon from '@material-ui/icons/AllOut';
 import CategoryIcon from '@material-ui/icons/Category';
+import StorageModal from './StorageModal';
 
 // styles
 const listItemStyle = {
@@ -34,6 +34,7 @@ const WoodenLogView = (props) => {
     // states
     const [woodenLogs, setWoodenLogs] = useState(null);
     const [expanded, setExpanded] = useState(false);
+    
 
     // anonymous functions
     const handleChange = (panel) => (event, isExpanded) => {
@@ -44,6 +45,11 @@ const WoodenLogView = (props) => {
         console.log(orderId);
         BaseAPI.show(WOODEN_LOG_ORDER_API_BASE, setWoodenLogs, props.orderId ? props.orderId : orderId);
     }, [])
+
+    // debug -> delete if complete
+    useEffect(() => {
+        console.log(woodenLogs);
+    }, [woodenLogs])
 
     return (
         <div className="card">
@@ -89,7 +95,14 @@ const WoodenLogView = (props) => {
                                         <Grid item xs={2}>{st.width}</Grid>
                                         <Grid item xs={2}>{st.height}</Grid>
                                         <Grid item xs={2}>{st.quality}</Grid>
-                                        <Grid item xs={2}><HomeIcon /></Grid>
+                                        {
+                                            st.storages && Array.isArray(st.storages)
+                                            ? <Grid item xs={2}>
+                                                <StorageModal 
+                                                storage={st.storages[0]} />
+                                            </Grid>
+                                            : null
+                                        }
                                     </Grid>
                                 ))
                             }
