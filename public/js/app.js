@@ -20525,9 +20525,9 @@ var Dashboard = function Dashboard(props) {
                       item: true,
                       xs: 3,
                       style: {
-                        backgroundColor: "rgba(0, 204, 102, ".concat(order.state, ")")
+                        backgroundColor: "rgba(".concat(235 - Math.round(235 * order.state), ", ").concat(Math.round(235 * order.state), ", 130, 0.3)")
                       },
-                      children: [order.state * 100, " %"]
+                      children: [Math.round(order.state * 100), " %"]
                     })]
                   }, j);
                 })]

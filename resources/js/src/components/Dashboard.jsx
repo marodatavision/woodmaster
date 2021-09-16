@@ -53,7 +53,7 @@ const Dashboard = (props) => {
                                             <Grid key={j} container item xs={12} spacing={3}>
                                                 <Grid item xs={6}><Button onClick={e => props.setSelectedOrder(order)} variant="outlined">{order.title}</Button></Grid>
                                                 <Grid className="d-flex justify-content-center align-items-center" item xs={3}>{order.deadline}</Grid>
-                                                <Grid className="d-flex justify-content-center align-items-center font-weight-bold" item xs={3} style={{backgroundColor: `rgba(0, 204, 102, ${order.state})`}}>{order.state * 100} %</Grid>
+                                                <Grid className="d-flex justify-content-center align-items-center font-weight-bold" item xs={3} style={{backgroundColor: `rgba(${235 - Math.round(235*order.state)}, ${Math.round(235*order.state)}, 130, 0.3)`}}>{Math.round(order.state * 100)} %</Grid>
                                             </Grid>
                                         ))
                                     }
